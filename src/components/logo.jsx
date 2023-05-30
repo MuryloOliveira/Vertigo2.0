@@ -10,8 +10,14 @@ import o from '../images/o.png'
 export function Logo() {
     return(
         <div>
-            <img src={Logo} alt="Imagem da Logo"/>
-            <img src="" alt="" />
+            <img src={Logo} alt="Imagem da Logo" />
+            <img src={v} alt="V" />
+            <img src={e} alt="E" />
+            <img src={r} alt="R" />
+            <img src={t} alt="T" />
+            <img src={i} alt="I" />
+            <img src={g} alt="G" />
+            <img src={o} alt="O" />
         </div>
     )
 
