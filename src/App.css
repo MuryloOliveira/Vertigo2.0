@@ -1,0 +1,30 @@
+.cinza {
+    color: #475569;
+}
+
+.cinza-escuro {
+    color: #1E293B;
+}
+
+.roxa {
+    height: 56.25rem;
+}
+
+section {
+    width: 90rem;
+    height: 56.25rem;
+    background-color: #F8FAFC;
+    display: flex;
+    justify-content: space-between;
+}
+
+.tela {
+    margin-left: 7rem;
+    margin-top: 2.5rem;
+    width: 24rem;
+    height: 30.1875rem;
+}
+
+button {
+    cursor: pointer;
+}

@@ -1,0 +1,16 @@
+.header {
+    margin-bottom: 2.5rem;
+    width: 21.9375rem;
+    height: 7.4375rem;
+}
+
+.header h1 {
+    margin-bottom: 1rem;
+    font-size: 2.25rem;
+    font-weight: 700;
+    line-height: 3.4375rem;
+}
+
+.header p {
+    font-size: 1rem;
+}
