@@ -4,30 +4,35 @@ import eyeOff from '../images/eye-off.png';
 import '../Formulario.css';
 
 const Formulario = () => {
-  const [email, setEmail] = useState('');
-  const [senha, setSenha] = useState('');
-  const [inputSenha, setInputSenha] = useState('text');
+  const [formState, setFormState] = useState({
+    email: '',
+    senha: '',
+    inputSenha: 'text'
+  });
 
   const handleAlterarInput = (event) => {
-    if (event.target.id === 'email') {
-      setEmail(event.target.value);
-    } else {
-      setSenha(event.target.value);
-    }
+    const { id, value } = event.target;
+    setFormState((prevState) => ({
+      ...prevState,
+      [id]: value
+    }));
   };
 
-  const handleEntrar = (valor1, valor2) => {
-    alert(`Email: ${valor1}\nSenha: ${valor2}`);
-    setEmail('');
-    setSenha('');
+  const handleEntrar = () => {
+    const { email, senha } = formState;
+    alert(`Email: ${email}\nSenha: ${senha}`);
+    setFormState({
+      email: '',
+      senha: '',
+      inputSenha: 'text'
+    });
   };
 
   const handleInputSenha = () => {
-    if (inputSenha === 'text') {
-      setInputSenha('password');
-    } else {
-      setInputSenha('text');
-    }
+    setFormState((prevState) => ({
+      ...prevState,
+      inputSenha: prevState.inputSenha === 'text' ? 'password' : 'text'
+    }));
   };
 
   return (
@@ -37,7 +42,13 @@ const Formulario = () => {
           <label htmlFor="email" className="cinza-escuro">E-mail</label>
         </div>
         <div className="div-input">
-          <input id="email" type="text" placeholder="Digite seu e-mail" value={email} onChange={handleAlterarInput} />
+          <input
+            id="email"
+            type="text"
+            placeholder="Digite seu e-mail"
+            value={formState.email}
+            onChange={handleAlterarInput}
+          />
         </div>
 
         <div className="div-label esqueceu">
@@ -45,15 +56,21 @@ const Formulario = () => {
           <button type="button" className="botao-label">Esqueceu a senha?</button>
         </div>
         <div className="div-input">
-          <input id="senha" type={inputSenha} placeholder="Digite sua senha" value={senha} onChange={handleAlterarInput} />
+          <input
+            id="senha"
+            type={formState.inputSenha}
+            placeholder="Digite sua senha"
+            value={formState.senha}
+            onChange={handleAlterarInput}
+          />
           <button type="button" onClick={handleInputSenha} className="on-off">
-            <img src={inputSenha === 'text' ? eye : eyeOff} alt="ícone de esconder" />
+            <img src={formState.inputSenha === 'text' ? eye : eyeOff} alt="ícone de esconder" />
           </button>
         </div>
       </form>
 
       <div>
-        <button type="button" className="entrar" onClick={() => handleEntrar(email, senha)}>Entrar</button>
+        <button type="button" className="entrar" onClick={handleEntrar}>Entrar</button>
       </div>
 
       <div className="div-sem-conta">
